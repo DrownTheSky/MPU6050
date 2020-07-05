@@ -7,7 +7,7 @@ int main(void)
 {
 	
 	USART_init();
-	I2Cx_init();
+	I2C_Config();
 	mpu6050_init();
 	
 	while(1)

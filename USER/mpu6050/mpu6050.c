@@ -5,12 +5,17 @@
 
 static void mpu6050_Writebyte(uint8_t Writeaddr, uint8_t Data)
 {
-    I2Cx_WriteByte(MPU6050_ADDRESS,Writeaddr,Data);
+    I2C_WriteByte(MPU6050_ADDRESS,Writeaddr,Data);
 }
 
-static uint8_t mpu6050_Readbyte(uint8_t Writeaddr)
+static uint8_t mpu6050_Readbyte(uint8_t Readaddr)
 {
-    return I2Cx_ReadByte(MPU6050_ADDRESS,Writeaddr);
+    return I2C_ReadByte(MPU6050_ADDRESS,Readaddr);
+}
+
+static void mpu6050_Readbuffer(uint8_t Readaddr,uint8_t *pDate, uint16_t Num)
+{
+	I2C_ReadBuffer(MPU6050_ADDRESS,Readaddr,pDate,Num);
 }
 
 static void mpu6050_exti_init(void)
@@ -66,10 +71,13 @@ void mpu6050_init(void)
 void mpu6050_ReadAcc(short *AccData)
 {
     uint8_t buf[6];
-    for(uint8_t i = 0; i < 6; i++)
-    {
-        buf[i] = mpu6050_Readbyte(MPU6050_ACC_OUT + i);
-    }
+	mpu6050_Readbuffer(MPU6050_ACC_OUT,buf,6);
+	
+//    for(uint8_t i = 0; i < 6; i++)
+//    {
+//        buf[i] = mpu6050_Readbyte(MPU6050_ACC_OUT + i);
+//    }
+		
     AccData[0] = (buf[0] << 8) | buf[1];
     AccData[1] = (buf[2] << 8) | buf[3];
     AccData[2] = (buf[4] << 8) | buf[5];
@@ -88,10 +96,13 @@ void mpu6050_Acc(float *AccData)
 void mpu6050_ReadGyro(short *GyroData)
 {
     uint8_t buf[6];
-    for(uint8_t i = 0; i < 6; i++)
-    {
-        buf[i] = mpu6050_Readbyte(MPU6050_GYRO_OUT + i);
-    }
+		mpu6050_Readbuffer(MPU6050_GYRO_OUT,buf,6);
+	
+//    for(uint8_t i = 0; i < 6; i++)
+//    {
+//        buf[i] = mpu6050_Readbyte(MPU6050_GYRO_OUT + i);
+//    }
+		
     GyroData[0] = (buf[0] << 8) | buf[1];
     GyroData[1] = (buf[2] << 8) | buf[3];
     GyroData[2] = (buf[4] << 8) | buf[5];
