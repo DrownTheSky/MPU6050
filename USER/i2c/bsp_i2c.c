@@ -120,7 +120,7 @@ void I2C_ReadBuffer(uint8_t Equipaddr, uint8_t Readaddr, uint8_t *pDate, uint16_
         while (!I2C_CheckEvent(I2CX, I2C_EVENT_MASTER_BYTE_RECEIVED))
             ;
         *(pDate++) = I2C_ReceiveData(I2CX);
-        if (Num == 1)
+        if (Num == 0)
         {
             I2C_AcknowledgeConfig(I2CX, DISABLE);
         }
@@ -301,7 +301,7 @@ void I2C_WriteBuffer(uint8_t Equipaddr, uint8_t Writeaddr, uint8_t *pDate, uint1
     while (Num--)
     {
         Send_Byte(*(pDate++));
-        if (Num == 1)
+        if (Num == 0)
         {
             I2C_NoAck();
         }
@@ -326,7 +326,7 @@ void I2C_ReadBuffer(uint8_t Equipaddr, uint8_t Readaddr, uint8_t *pDate, uint16_
     while (Num--)
     {
         *(pDate++) = Receive_Byte();
-        if (Num == 1)
+        if (Num == 0)
         {
             I2C_NoAck();
         }

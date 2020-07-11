@@ -29,7 +29,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
-#include "./mpu6050/mpu6050.h"
 
 /** @addtogroup STM32F4xx_StdPeriph_Examples
   * @{
@@ -153,20 +152,7 @@ void SysTick_Handler(void)
 /*  available peripheral interrupt handler's name please refer to the startup */
 /*  file (startup_stm32f40xx.s/startup_stm32f427x.s/startup_stm32f429x.s).  */
 /******************************************************************************/
-float Acel[3];
-float Gyro[3];
-void MPU6050_INT_IRQHANDLER(void)
-{
-  if(EXTI_GetITStatus(MPU6050_INT_GPIO_LINE) != RESET)
-  {
-		mpu6050_Acc(Acel);
-		printf("AccX = %.3f  AccY = %.3f  AccZ = %.3f\n",Acel[0],Acel[1],Acel[2]);
-		mpu6050_Gyro(Gyro);
-		printf("GyrX = %.3f  GyrY = %.3f  GyrZ = %.3f\n",Gyro[0],Gyro[1],Gyro[2]);
 
-    EXTI_ClearITPendingBit(MPU6050_INT_GPIO_LINE);
-  }
-}
 
 /**
   * @}

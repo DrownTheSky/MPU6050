@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F429_439xx,</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\Doc;..\StartUp;..\STM32F4xx_StdPeriph_Driver;..\STM32F4xx_StdPeriph_Driver\inc;..\STM32F4xx_StdPeriph_Driver\src;..\USER</IncludePath>
+              <IncludePath>..\CMSIS;..\Doc;..\StartUp;..\STM32F4xx_StdPeriph_Driver;..\STM32F4xx_StdPeriph_Driver\inc;..\STM32F4xx_StdPeriph_Driver\src;..\USER;..\USER\IMU</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -653,14 +653,24 @@
               <FilePath>..\USER\usart\bsp_usart.c</FilePath>
             </File>
             <File>
-              <FileName>mpu6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\USER\mpu6050\mpu6050.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\USER\i2c\bsp_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\IMU\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\IMU\imu.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\IMU\mpu6050.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -1008,7 +1018,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER,STM32F429_439xx,VECT_TAB_SRAM,</Define>
               <Undefine></Undefine>
-              <IncludePath>..\CMSIS;..\Doc;..\StartUp;..\STM32F4xx_StdPeriph_Driver;..\STM32F4xx_StdPeriph_Driver\inc;..\STM32F4xx_StdPeriph_Driver\src;..\USER</IncludePath>
+              <IncludePath>..\CMSIS;..\Doc;..\StartUp;..\STM32F4xx_StdPeriph_Driver;..\STM32F4xx_StdPeriph_Driver\inc;..\STM32F4xx_StdPeriph_Driver\src;..\USER;..\USER\IMU</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1323,14 +1333,24 @@
               <FilePath>..\USER\usart\bsp_usart.c</FilePath>
             </File>
             <File>
-              <FileName>mpu6050.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\USER\mpu6050\mpu6050.c</FilePath>
-            </File>
-            <File>
               <FileName>bsp_i2c.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\USER\i2c\bsp_i2c.c</FilePath>
+            </File>
+            <File>
+              <FileName>filter.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\IMU\filter.c</FilePath>
+            </File>
+            <File>
+              <FileName>imu.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\IMU\imu.c</FilePath>
+            </File>
+            <File>
+              <FileName>mpu6050.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\USER\IMU\mpu6050.c</FilePath>
             </File>
           </Files>
         </Group>
